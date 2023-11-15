@@ -3,6 +3,10 @@ const bodyParser = require('body-parser');
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
+// Import Controllers
+const searchController = require('./controllers/searchController');
+const addExperienceController = require('./controllers/addExperienceController');
+
 // Resolve the absolute path for the database file
 const dbPath = path.resolve(__dirname, './myexperiences.db');
 console.log(__dirname, './myexperiences.db')
@@ -38,7 +42,15 @@ app.get('/experiences', (req, res) => {
   });
 });
 
-// Endpoint to get a single experience
+
+
+// Endpoint to search for experiences
+app.get('/activity/:region', searchController.searchExperiences);
+
+// Endpoint to add a new experience
+app.post('/experience/add', addExperienceController.addExperience);
+
+/*// Endpoint to get a single experience
 app.get('/experiences/:id', (req, res) => {
   const sql = 'SELECT * FROM experiences WHERE id = ?';
   db.get(sql, [req.params.id], (err, row) => {
@@ -66,6 +78,7 @@ app.post('/experiences', (req, res) => {
     res.status(201).json({ id: this.lastID });
   });
 });
+*/
 
 // Endpoint to create a new booking
 app.post('/bookings', (req, res) => {
