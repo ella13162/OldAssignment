@@ -1,0 +1,32 @@
+<form id="searchForm">
+    <input type="text" id="regionInput" placeholder="Enter region">
+    <button type="submit">Search</button>
+  </form>
+  
+  <div id="results"></div>
+  
+  <script>
+    document.getElementById('searchForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const region = document.getElementById('regionInput').value;
+      fetch(`/activity/${region}`)
+        .then(response => response.json())
+        .then(data => {
+          // Code to display results
+        })
+        .catch(error => console.error('Error:', error));
+    });
+
+ 
+    function handleBooking(expID) {
+    fetch(`/experience/${expID}/book`, { method: 'POST' })
+        .then(response => {
+        // Handle response
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+
+
+  </script>
+  

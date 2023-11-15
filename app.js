@@ -23,6 +23,9 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Serve static files from the 'public' directory
+app.use(express.static('public'));
+
 // Endpoint to get a list of experiences
 app.get('/experiences', (req, res) => {
   const sql = 'SELECT * FROM experiences';
@@ -100,7 +103,7 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
-// Gracefully shut down the server
+// Shut down the server
 process.on('SIGINT', () => {
   db.close(() => {
     console.log('Database connection closed.');

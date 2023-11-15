@@ -32,10 +32,10 @@ please install git scm command line tool from the link below
     Change from master to main branch
       > git branch -m main
 11. Add the remote github to the ""origin". Go and copy the path of your github repo where you want to push all your files/folder 
-    > git remote add origin https://github.com/ella13162/WebApp-Assignment.git
+    > git remote add origin https://github.com/ella13162/OldAssignment.git
 
     You can confirm the remote origin by using command
-    >git remote add origin https://github.com/ella13162/WebApp-Assignment.git
+    >git remote add origin https://github.com/ella13162/OldAssignment.git
 12. If you don't have any existing project and you want to **clone** existing project from github you can clone it like
     > git clone "Path of you github rep.git"
 13. Add commit or comment
@@ -53,7 +53,7 @@ please install git scm command line tool from the link below
 
 ## Summary of Github Command
 ### clone existing project
-    > git clone https://github.com/ella13162/WebApp-Assignment.git
+    > git clone https://github.com/ella13162/OldAssignment.git
 ### Steps for making existing folder as repo
 > git init
 > git branch -m main
